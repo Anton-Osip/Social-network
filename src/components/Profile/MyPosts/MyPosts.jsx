@@ -3,6 +3,14 @@ import styles from './MyPosts.module.css'
 import Post from './Post/Post'
 
 export default function MyPosts() {
+	const postsData = [
+		{ id: 1, message: 'Hey, why nobody love me?', likeCount: '10' },
+		{ id: 2, message: "It's our new program! Hey!", likeCount: '25' },
+		{ id: 3, message: 'Hey, why nobody love me?', likeCount: '10' },
+		{ id: 4, message: "It's our new program! Hey!", likeCount: '25' },
+		{ id: 5, message: 'Hey, why nobody love me?', likeCount: '10' },
+		{ id: 6, message: "It's our new program! Hey!", likeCount: '25' },
+	]
 	return (
 		<div>
 			<div className={styles.newPost}>
@@ -20,7 +28,6 @@ export default function MyPosts() {
 			</div>
 			<div className={styles.posts}>
 				<Post message='Hey, why nobody love me?' likeCount='10' />
-				<Post message="It's our new program! Hey!" likeCount='25' />
 			</div>
 		</div>
 	)
