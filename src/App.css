@@ -36,7 +36,7 @@ a {
 		'header header header'
 		'nav content content';
 	grid-template-rows: 74px auto;
-	grid-template-columns: 264px auto;
+	grid-template-columns: 264px auto auto;
 	grid-column-gap: 20px;
 	grid-row-gap: 16px;
 }
