@@ -1,0 +1,18 @@
+.nav {
+	grid-area: nav;
+	background-color: #13ce66;
+	min-height: 100vh;
+	padding: 13px 19px 0 19px;
+}
+.item {
+	color: #ffffff;
+	font-family: Lato;
+	font-size: 34px;
+	line-height: 44px;
+	width: 264px;
+	text-align: left;
+}
+.item:last-child {
+	display: block;
+	margin-top: 50px;
+}
