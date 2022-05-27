@@ -2,6 +2,7 @@ import React from 'react'
 import banner from '../../images/banner.jpg'
 import ava from '../../images/ava.jpg'
 import styles from './Profile.module.css'
+import MyPosts from './MyPosts/MyPosts'
 
 export default function Profile() {
 	return (
@@ -22,47 +23,14 @@ export default function Profile() {
 						City: Minsk Education: BNTU '21
 					</p>
 					<p className={styles.me__text}>
-						Web Site: https://it-kamasutra.com
+						Web Site:{' '}
+						<a href='https://www.linkedin.com/in/%D0%B0%D0%BD%D1%82%D0%BE%D0%BD-%D0%BE%D1%81%D0%B8%D0%BF%D1%87%D0%B8%D0%BA-729784216/'>
+							https://www.linkedin.com/
+						</a>
 					</p>
 				</div>
 			</div>
-			<div className={styles.newPost}>
-				<h3 className={styles.newPost__title}>My posts</h3>
-				<form className={styles.newPost__form}>
-					<input
-						type='text'
-						placeholder='your news...'
-						className={styles.newPost__input}
-					/>
-					<button className={styles.newPost__btn}>Send</button>
-				</form>
-			</div>
-			<div className={styles.posts}>
-				<div className={styles.post}>
-					<div className={styles.post__ava}>
-						<img
-							src={ava}
-							alt='ava'
-							className={styles.post__avaImg}
-						/>
-					</div>
-					<p className={styles.post__text}>
-						Hey, why nobody love me?
-					</p>
-				</div>
-				<div className={styles.post}>
-					<div className={styles.post__ava}>
-						<img
-							src={ava}
-							alt='ava'
-							className={styles.post__avaImg}
-						/>
-					</div>
-					<p className={styles.post__text}>
-						It's our new program! Hey!
-					</p>
-				</div>
-			</div>
+			<MyPosts />
 		</div>
 	)
 }
