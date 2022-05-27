@@ -37,5 +37,7 @@ a {
 	grid-template-columns: 264px auto auto;
 	grid-column-gap: 20px;
 	grid-row-gap: 16px;
-	
+}
+.content {
+	grid-area: content;
 }
