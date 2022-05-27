@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './MyPosts.module.css'
 import Post from './Post/Post'
+import uuid from 'react-uuid'
 
 export default function MyPosts() {
 	const postsData = [
@@ -11,6 +12,9 @@ export default function MyPosts() {
 		{ id: 5, message: 'Hey, why nobody love me?', likeCount: '10' },
 		{ id: 6, message: "It's our new program! Hey!", likeCount: '25' },
 	]
+	const postsElements = postsData.map(post => (
+		<Post message={post.message} likeCount={post.likeCount} key={uuid()} />
+	))
 	return (
 		<div>
 			<div className={styles.newPost}>
@@ -26,9 +30,7 @@ export default function MyPosts() {
 					</button>
 				</form>
 			</div>
-			<div className={styles.posts}>
-				<Post message='Hey, why nobody love me?' likeCount='10' />
-			</div>
+			<div className={styles.posts}>{postsElements}</div>
 		</div>
 	)
 }

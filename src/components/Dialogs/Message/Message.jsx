@@ -4,7 +4,11 @@ import styles from './Message.module.css'
 export default function Message(props) {
 	return (
 		<div
-			className={`${styles.dialogs__message}  ${styles.dialogs__myMessage}`}
+			className={
+				props.my
+					? `${styles.dialogs__message}  ${styles.dialogs__myMessage}`
+					: `${styles.dialogs__message}`
+			}
 		>
 			<p className={styles.dialogs__text}>{props.message}</p>
 		</div>
