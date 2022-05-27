@@ -5,19 +5,19 @@ export default function Navbar() {
 	return (
 		<nav className={styles.nav}>
 			<div className={styles.item}>
-				<a href='#profile'>Профиль</a>
+				<a href='/profile'>Профиль</a>
 			</div>
 			<div className={styles.item}>
-				<a href='#messages'>Сообщения</a>
+				<a href='/messages'>Сообщения</a>
 			</div>
 			<div className={styles.item}>
-				<a href='#news'>Новости</a>
+				<a href='/news'>Новости</a>
 			</div>
 			<div className={styles.item}>
-				<a href='#music'>Музыка</a>
+				<a href='/music'>Музыка</a>
 			</div>
 			<div className={styles.item}>
-				<a href='#settings'>Настройки</a>
+				<a href='/settings'>Настройки</a>
 			</div>
 		</nav>
 	)

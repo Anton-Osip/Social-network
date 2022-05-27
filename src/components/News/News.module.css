@@ -1,0 +1,12 @@
+.news {
+}
+.news__title {
+	color: #47525e;
+	font-family: Lato;
+	font-size: 26px;
+	line-height: 33px;
+	font-weight: 300;
+}
+.news__inner {
+	display: flex;
+}
