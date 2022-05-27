@@ -17,7 +17,7 @@ const App = () => {
 				<div className='content'>
 					<Routes>
 						<Route path='/profile' element={<Profile />} />
-						<Route path='/messages' element={<Dialogs />} />
+						<Route path='/messages/*' element={<Dialogs />} />
 						<Route path='/news' element={<News />} />
 						<Route path='/music' element={<Music />} />
 					</Routes>

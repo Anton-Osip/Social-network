@@ -1,8 +1,10 @@
 .nav {
 	grid-area: nav;
 	background-color: #13ce66;
-	min-height: 100vh;
+	height: 100vh;
 	padding: 13px 19px 0 19px;
+	position: sticky;
+	top: 0;
 }
 .item {
 	color: #ffffff;
@@ -15,4 +17,12 @@
 .item:last-child {
 	display: block;
 	margin-top: 50px;
+}
+.link {
+	transition: font-weight 0.3s, color 0.3s;
+}
+.activeLink {
+	color: black;
+	font-weight: 700;
+	transition: font-weight 0.3s, color 0.3s;
 }
