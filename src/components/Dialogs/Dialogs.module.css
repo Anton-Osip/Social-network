@@ -28,6 +28,7 @@
 	position: relative;
 	transition: all 0.3s;
 	cursor: pointer;
+	display: block;
 }
 .active__name {
 	color: #343f4b;
@@ -36,7 +37,12 @@
 	line-height: 36px;
 	padding-left: 40px;
 	transition: all 0.3s;
+	position: relative;
+	cursor: pointer;
+	display: block;
+	margin-bottom: 31px;
 }
+.active__name::before,
 .dialogs____name::before {
 	content: '';
 	background-color: #8190a5;

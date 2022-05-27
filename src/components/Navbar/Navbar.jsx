@@ -17,7 +17,7 @@ export default function Navbar() {
 			</div>
 			<div className={styles.item}>
 				<NavLink
-					to='/messages'
+					to='/dialogs'
 					className={({ isActive }) =>
 						isActive ? styles.activeLink : styles.link
 					}

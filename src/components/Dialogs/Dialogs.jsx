@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styles from './Dialogs.module.css'
 
 export default function Dialogs(props) {
@@ -7,15 +8,56 @@ export default function Dialogs(props) {
 			<h1 className={styles.dialogs__title}>DIALOGS</h1>
 			<div className={styles.dialogs__inner}>
 				<div className={styles.dialogs____names}>
-					<p className={styles.dialogs____name}>Anton</p>
-					<p
-						className={`${styles.dialogs____name}  ${styles.active__name}`}
+					<NavLink
+						to='/dialogs/Anton'
+						className={({ isActive }) =>
+							isActive
+								? styles.active__name
+								: styles.dialogs____name
+						}
+					>
+						Anton
+					</NavLink>
+					<NavLink
+						to='/dialogs/Viktor'
+						className={({ isActive }) =>
+							isActive
+								? styles.active__name
+								: styles.dialogs____name
+						}
 					>
 						Viktor
-					</p>
-					<p className={styles.dialogs____name}>Valera</p>
-					<p className={styles.dialogs____name}>Sveta</p>
-					<p className={styles.dialogs____name}>Pasha</p>
+					</NavLink>
+					<NavLink
+						to='/dialogs/Valera'
+						className={({ isActive }) =>
+							isActive
+								? styles.active__name
+								: styles.dialogs____name
+						}
+					>
+						Valera
+					</NavLink>
+					<NavLink
+						to='/dialogs/Sveta'
+						className={({ isActive }) =>
+							isActive
+								? styles.active__name
+								: styles.dialogs____name
+						}
+					>
+						Sveta
+					</NavLink>
+					<NavLink
+						to='/dialogs/Pasha'
+						className={({ isActive }) =>
+							isActive
+								? styles.active__name
+								: styles.dialogs____name
+						}
+					>
+						Pasha
+					</NavLink>
 				</div>
 				<div className={styles.dialogs__messages}>
 					<div
