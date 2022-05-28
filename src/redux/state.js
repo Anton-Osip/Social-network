@@ -3,10 +3,6 @@ const state = {
 		posts: [
 			{ id: 1, message: 'Hey, why nobody love me?', likeCount: '10' },
 			{ id: 2, message: "It's our new program! Hey!", likeCount: '25' },
-			{ id: 3, message: 'Hey, why nobody love me?', likeCount: '10' },
-			{ id: 4, message: "It's our new program! Hey!", likeCount: '25' },
-			{ id: 5, message: 'Hey, why nobody love me?', likeCount: '10' },
-			{ id: 6, message: "It's our new program! Hey!", likeCount: '25' },
 		],
 	},
 	messagesPage: {
@@ -59,6 +55,15 @@ const state = {
 			{ id: 3, name: 'Valera' },
 		],
 	},
+}
+
+export let addPost = postMessage => {
+	let newPost = {
+		id: state.profilePage.posts.length,
+		message: postMessage,
+		likeCount: 0,
+	}
+	state.profilePage.posts.push(newPost)
 }
 
 export default state

@@ -20,7 +20,10 @@ const App = props => {
 						<Route
 							path='/*'
 							element={
-								<Profile state={props.state.profilePage} />
+								<Profile
+									state={props.state.profilePage}
+									addPost={props.addPost}
+								/>
 							}
 						/>
 						<Route

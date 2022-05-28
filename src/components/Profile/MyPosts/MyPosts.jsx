@@ -9,9 +9,9 @@ export default function MyPosts(props) {
 		<Post message={post.message} likeCount={post.likeCount} key={uuid()} />
 	))
 	let newPostElement = React.createRef()
-	let addPost = e => {
+	let addPost = () => {
 		let text = newPostElement.current.value
-		alert(text)
+		props.addPost(text)
 	}
 	return (
 		<div>
