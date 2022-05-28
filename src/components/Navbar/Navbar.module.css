@@ -1,7 +1,7 @@
 .nav {
 	grid-area: nav;
 	background-color: #13ce66;
-	height: 100vh;
+	height: calc(100vh - 54px);
 	padding: 13px 19px 0 19px;
 	position: sticky;
 	top: 0;

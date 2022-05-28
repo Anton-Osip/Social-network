@@ -4,7 +4,7 @@ import styles from './Dialogs.module.css'
 
 import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
-
+import NewMessage from './NewMessage/NewMessage'
 
 export default function Dialogs(props) {
 	const dialogsElements = props.state.dialogs.map(dialog => (
@@ -23,6 +23,7 @@ export default function Dialogs(props) {
 				<div className={styles.dialogs__messages}>
 					{messagesElements}
 				</div>
+				<NewMessage />
 			</div>
 		</div>
 	)

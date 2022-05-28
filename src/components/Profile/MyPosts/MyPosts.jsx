@@ -8,6 +8,11 @@ export default function MyPosts(props) {
 	const postsElements = props.posts.map(post => (
 		<Post message={post.message} likeCount={post.likeCount} key={uuid()} />
 	))
+	let newPostElement = React.createRef()
+	let addPost = e => {
+		let text = newPostElement.current.value
+		alert(text)
+	}
 	return (
 		<div>
 			<div className={styles.newPost}>
@@ -15,10 +20,15 @@ export default function MyPosts(props) {
 				<form className={styles.newPost__form}>
 					<input
 						type='text'
+						ref={newPostElement}
 						// value='your news...'
 						className={styles.newPost__input}
 					/>
-					<button type='submit' className={styles.newPost__btn}>
+					<button
+						onClick={addPost}
+						type='submit'
+						className={styles.newPost__btn}
+					>
 						Send
 					</button>
 				</form>

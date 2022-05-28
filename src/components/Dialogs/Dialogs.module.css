@@ -9,6 +9,7 @@
 }
 .dialogs__inner {
 	display: flex;
+	position: relative;
 }
 .dialogs____names {
 	max-width: 342px;
@@ -18,11 +19,9 @@
 	min-height: calc(100vh - 53px - 34px);
 }
 
-
 .dialogs__messages {
 	display: flex;
 	flex-direction: column;
 	padding: 35px;
 	width: 100%;
 }
-
