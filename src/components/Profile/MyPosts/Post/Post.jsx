@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Post.module.css'
+
 import ava from '../../../../images/ava.jpg'
 import like from '../../../../images/like.svg'
 

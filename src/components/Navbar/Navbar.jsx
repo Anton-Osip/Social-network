@@ -1,60 +1,22 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import styles from './Navbar.module.css'
+import uuid from 'react-uuid'
 
-export default function Navbar() {
+import Link from './Link/Link'
+import FrendLink from './FrendLink/FrendLink'
+
+export default function Navbar(props) {
+	const linksElements = props.state.links.map(link => (
+		<Link link={link.link} href={link.href} key={uuid()} />
+	))
+	const frendsElements = props.state.frends.map(frend => (
+		<FrendLink key={uuid()} name={frend.name} />
+	))
+
 	return (
 		<nav className={styles.nav}>
-			<div className={styles.item}>
-				<NavLink
-					to='/profile'
-					className={({ isActive }) =>
-						isActive ? styles.activeLink : styles.link
-					}
-				>
-					Профиль
-				</NavLink>
-			</div>
-			<div className={styles.item}>
-				<NavLink
-					to='/dialogs'
-					className={({ isActive }) =>
-						isActive ? styles.activeLink : styles.link
-					}
-				>
-					Сообщения
-				</NavLink>
-			</div>
-			<div className={styles.item}>
-				<NavLink
-					to='/news'
-					className={({ isActive }) =>
-						isActive ? styles.activeLink : styles.link
-					}
-				>
-					Новости
-				</NavLink>
-			</div>
-			<div className={styles.item}>
-				<NavLink
-					to='/music'
-					className={({ isActive }) =>
-						isActive ? styles.activeLink : styles.link
-					}
-				>
-					Музыка
-				</NavLink>
-			</div>
-			<div className={styles.item}>
-				<NavLink
-					to='/settings'
-					className={({ isActive }) =>
-						isActive ? styles.activeLink : styles.link
-					}
-				>
-					Настройки
-				</NavLink>
-			</div>
+			{linksElements}
+			<div className={styles.frends}>{frendsElements}</div>
 		</nav>
 	)
 }

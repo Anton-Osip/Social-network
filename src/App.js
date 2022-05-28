@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+
 import Dialogs from './components/Dialogs/Dialogs'
 import Header from './components/Header/Header.jsx'
 import Navbar from './components/Navbar/Navbar'
@@ -8,25 +9,24 @@ import Profile from './components/Profile/Profile'
 import News from './components/News/News'
 import Music from './components/Music/Music'
 
-const App = (props) => {
+const App = props => {
 	return (
 		<BrowserRouter>
 			<div className='app-wrapper'>
 				<Header />
-				<Navbar />
+				<Navbar state={props.state.sidebar} />
 				<div className='content'>
 					<Routes>
 						<Route
 							path='/*'
-							element={<Profile posts={props.posts} />}
+							element={
+								<Profile state={props.state.profilePage} />
+							}
 						/>
 						<Route
 							path='/dialogs/*'
 							element={
-								<Dialogs
-									dialogs={props.dialogs}
-									messages={props.messages}
-								/>
+								<Dialogs state={props.state.messagesPage} />
 							}
 						/>
 						<Route path='/news' element={<News />} />

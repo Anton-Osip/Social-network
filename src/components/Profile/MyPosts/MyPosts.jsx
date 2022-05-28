@@ -1,7 +1,8 @@
 import React from 'react'
-import styles from './MyPosts.module.css'
-import Post from './Post/Post'
 import uuid from 'react-uuid'
+import styles from './MyPosts.module.css'
+
+import Post from './Post/Post'
 
 export default function MyPosts(props) {
 	const postsElements = props.posts.map(post => (
@@ -14,7 +15,7 @@ export default function MyPosts(props) {
 				<form className={styles.newPost__form}>
 					<input
 						type='text'
-						value='your news...'
+						// value='your news...'
 						className={styles.newPost__input}
 					/>
 					<button type='submit' className={styles.newPost__btn}>

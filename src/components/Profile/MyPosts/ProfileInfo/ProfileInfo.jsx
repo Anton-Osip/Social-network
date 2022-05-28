@@ -1,7 +1,8 @@
 import React from 'react'
+import styles from './ProfileInfo.module.css'
+
 import banner from '../../../../images/banner.jpg'
 import ava from '../../../../images/ava.jpg'
-import styles from './ProfileInfo.module.css'
 
 export default function ProfileInfo() {
 	return (

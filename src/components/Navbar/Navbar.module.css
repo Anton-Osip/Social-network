@@ -6,23 +6,8 @@
 	position: sticky;
 	top: 0;
 }
-.item {
-	color: #ffffff;
-	font-family: Lato;
-	font-size: 34px;
-	line-height: 44px;
-	width: 264px;
-	text-align: left;
-}
-.item:last-child {
-	display: block;
-	margin-top: 50px;
-}
-.link {
-	transition: font-weight 0.3s, color 0.3s;
-}
-.activeLink {
-	color: black;
-	font-weight: 700;
-	transition: font-weight 0.3s, color 0.3s;
+.frends {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
