@@ -5,11 +5,11 @@ import Message from './Message/Message'
 import uuid from 'react-uuid'
 
 export default function Dialogs(props) {
-	const dialogsElements = props.dialogsData.map(dialog => (
+	const dialogsElements = props.dialogs.map(dialog => (
 		<Dialog name={dialog.name} key={uuid()} />
 	))
 
-	const messagesElements = props.messagesData.map(message => (
+	const messagesElements = props.messages.map(message => (
 		<Message message={message.message} key={uuid()} my={message.my} />
 	))
 

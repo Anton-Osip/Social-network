@@ -24,10 +24,6 @@
 	font-size: 26px;
 	line-height: 33px;
 }
-.newPost__input:placeholder {
-	color: #b0b8c2;
-	font-family: Lato;
-}
 .newPost__btn {
 	color: #ffffff;
 	font-family: Lato;

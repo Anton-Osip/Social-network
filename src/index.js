@@ -46,9 +46,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 	<React.StrictMode>
 		<App
-			postsData={postsData}
-			dialogsData={dialogsData}
-			messagesData={messagesData}
+			posts={postsData}
+			dialogs={dialogsData}
+			messages={messagesData}
 		/>
 	</React.StrictMode>
 )

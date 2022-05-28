@@ -4,7 +4,7 @@ import Post from './Post/Post'
 import uuid from 'react-uuid'
 
 export default function MyPosts(props) {
-	const postsElements = props.postsData.map(post => (
+	const postsElements = props.posts.map(post => (
 		<Post message={post.message} likeCount={post.likeCount} key={uuid()} />
 	))
 	return (
@@ -14,7 +14,7 @@ export default function MyPosts(props) {
 				<form className={styles.newPost__form}>
 					<input
 						type='text'
-						placeholder='your news...'
+						value='your news...'
 						className={styles.newPost__input}
 					/>
 					<button type='submit' className={styles.newPost__btn}>
