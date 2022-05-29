@@ -7,11 +7,11 @@ import Message from './Message/Message'
 import NewMessage from './NewMessage/NewMessage'
 
 export default function Dialogs(props) {
-	const dialogsElements = props.state.dialogs.map(dialog => (
+	const dialogsElements = props.messagesPage.dialogs.map(dialog => (
 		<Dialog name={dialog.name} key={uuid()} />
 	))
 
-	const messagesElements = props.state.messages.map(message => (
+	const messagesElements = props.messagesPage.messages.map(message => (
 		<Message message={message.message} key={uuid()} my={message.my} />
 	))
 
@@ -23,7 +23,11 @@ export default function Dialogs(props) {
 				<div className={styles.dialogs__messages}>
 					{messagesElements}
 				</div>
-				<NewMessage />
+				<NewMessage
+					newMessageText={props.messagesPage.newMessageText}
+					addMessage={props.addMessage}
+					updateNewMessageText={props.updateNewMessageText}
+				/>
 			</div>
 		</div>
 	)

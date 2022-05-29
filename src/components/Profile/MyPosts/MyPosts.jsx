@@ -5,7 +5,7 @@ import styles from './MyPosts.module.css'
 import Post from './Post/Post'
 
 export default function MyPosts(props) {
-	const postsElements = props.state.posts.map(post => (
+	const postsElements = props.profilePage.posts.map(post => (
 		<Post message={post.message} likeCount={post.likeCount} key={uuid()} />
 	))
 
@@ -13,13 +13,12 @@ export default function MyPosts(props) {
 
 	function addPost(e) {
 		e.preventDefault()
-		let text = newPostElement.current.value
-		props.addPost(text)
+		props.addPost()
 	}
 
-	function changeNewPost() {
+	function onPostChange() {
 		let text = newPostElement.current.value
-		props.changeNewPost(text)
+		props.updateNewPostText(text)
 	}
 
 	return (
@@ -28,10 +27,10 @@ export default function MyPosts(props) {
 				<h3 className={styles.newPost__title}>My posts</h3>
 				<form className={styles.newPost__form}>
 					<input
-						onChange={changeNewPost}
+						onChange={onPostChange}
 						type='text'
 						ref={newPostElement}
-						value={props.state.newPost}
+						value={props.profilePage.newPostText}
 						className={styles.newPost__input}
 					/>
 					<button

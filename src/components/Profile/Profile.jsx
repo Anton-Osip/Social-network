@@ -9,9 +9,9 @@ export default function Profile(props) {
 		<div className={styles.content}>
 			<ProfileInfo />
 			<MyPosts
-				state={props.state}
+				profilePage={props.profilePage}
 				addPost={props.addPost}
-				changeNewPost={props.changeNewPost}
+				updateNewPostText={props.updateNewPostText}
 			/>
 		</div>
 	)
