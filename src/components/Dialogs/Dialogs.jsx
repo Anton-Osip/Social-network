@@ -25,8 +25,7 @@ export default function Dialogs(props) {
 				</div>
 				<NewMessage
 					newMessageText={props.messagesPage.newMessageText}
-					addMessage={props.addMessage}
-					updateNewMessageText={props.updateNewMessageText}
+					dispatch={props.dispatch}
 				/>
 			</div>
 		</div>

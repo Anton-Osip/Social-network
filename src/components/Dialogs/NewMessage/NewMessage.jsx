@@ -6,12 +6,14 @@ export default function NewMessage(props) {
 
 	function addMessage(e) {
 		e.preventDefault()
-		props.addMessage()
+		let action = { type: 'ADD-MESSAGE' }
+		props.dispatch(action)
 	}
 
 	function onMessageChange() {
 		let text = newMessageElement.current.value
-		props.updateNewMessageText(text)
+		let action = { type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text }
+		props.dispatch(action)
 	}
 	return (
 		<form className={styles.form}>
