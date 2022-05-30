@@ -1,4 +1,8 @@
 import React from 'react'
+import {
+	addMessageActionCreator,
+	updateNewMessageTextActionCreator,
+} from '../../../redux/state'
 import styles from './NewMessage.module.css'
 
 export default function NewMessage(props) {
@@ -6,13 +10,13 @@ export default function NewMessage(props) {
 
 	function addMessage(e) {
 		e.preventDefault()
-		let action = { type: 'ADD-MESSAGE' }
+		let action = addMessageActionCreator()
 		props.dispatch(action)
 	}
 
 	function onMessageChange() {
 		let text = newMessageElement.current.value
-		let action = { type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text }
+		let action = updateNewMessageTextActionCreator(text)
 		props.dispatch(action)
 	}
 	return (
