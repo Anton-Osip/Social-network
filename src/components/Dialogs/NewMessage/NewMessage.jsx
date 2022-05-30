@@ -1,35 +1,32 @@
 import React from 'react'
 import {
-	addMessageActionCreator,
-	updateNewMessageTextActionCreator,
+	sendMessageCreator,
+	updateNewMessageBodyCreator,
 } from '../../../redux/state'
 import styles from './NewMessage.module.css'
 
 export default function NewMessage(props) {
-	let newMessageElement = React.createRef()
-
-	function addMessage(e) {
+	function onSendMessageClick(e) {
 		e.preventDefault()
-		let action = addMessageActionCreator()
+		let action = sendMessageCreator()
 		props.dispatch(action)
 	}
 
-	function onMessageChange() {
-		let text = newMessageElement.current.value
-		let action = updateNewMessageTextActionCreator(text)
+	function onNewMessageChange(e) {
+		let body = e.target.value
+		let action = updateNewMessageBodyCreator(body)
 		props.dispatch(action)
 	}
 	return (
 		<form className={styles.form}>
 			<input
-				onChange={onMessageChange}
-				ref={newMessageElement}
+				onChange={onNewMessageChange}
 				type='text'
 				className={styles.form__input}
-				value={props.newMessageText}
+				value={props.newMessageBody}
 			/>
 			<button
-				onClick={addMessage}
+				onClick={onSendMessageClick}
 				type='submit'
 				className={styles.form__btn}
 			>
