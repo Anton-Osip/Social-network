@@ -63,47 +63,39 @@ let store = {
 			],
 		},
 	},
-
 	getState() {
 		return this._state
 	},
-
 	_callSubscriber() {},
-
-	addPost() {
-		let newPost = {
-			id: this._state.profilePage.posts.length,
-			message: this._state.profilePage.newPostText,
-			likeCount: 0,
-		}
-		this._state.profilePage.posts.unshift(newPost)
-		this._state.profilePage.newPostText = ''
-		this._callSubscriber(this._state)
-	},
-
-	updateNewPostText(newText) {
-		this._state.profilePage.newPostText = newText
-		this._callSubscriber(this._state)
-	},
-
-	addMessage() {
-		let newMessage = {
-			id: this._state.messagesPage.messages.length,
-			message: this._state.messagesPage.newMessageText,
-			my: true,
-		}
-		this._state.messagesPage.messages.push(newMessage)
-		this._state.messagesPage.newMessageText = ''
-		this._callSubscriber(this._state)
-	},
-
-	updateNewMessageText(newText) {
-		this._state.messagesPage.newMessageText = newText
-		this._callSubscriber(this._state)
-	},
-
 	subscribe(observer) {
 		this._callSubscriber = observer //observer почитать
+	},
+	dispatch(action) {
+		if (action.type === 'ADD-POST') {
+			let newPost = {
+				id: this._state.profilePage.posts.length,
+				message: this._state.profilePage.newPostText,
+				likeCount: 0,
+			}
+			this._state.profilePage.posts.unshift(newPost)
+			this._state.profilePage.newPostText = ''
+			this._callSubscriber(this._state)
+		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+			this._state.profilePage.newPostText = action.newText
+			this._callSubscriber(this._state)
+		} else if (action.type === 'ADD-MESSAGE') {
+			let newMessage = {
+				id: this._state.messagesPage.messages.length,
+				message: this._state.messagesPage.newMessageText,
+				my: true,
+			}
+			this._state.messagesPage.messages.push(newMessage)
+			this._state.messagesPage.newMessageText = ''
+			this._callSubscriber(this._state)
+		} else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+			this._state.messagesPage.newMessageText = action.newText
+			this._callSubscriber(this._state)
+		}
 	},
 }
 

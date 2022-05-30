@@ -13,12 +13,14 @@ export default function MyPosts(props) {
 
 	function addPost(e) {
 		e.preventDefault()
-		props.addPost()
+		let action = { type: 'ADD-POST' }
+		props.dispatch(action)
 	}
 
 	function onPostChange() {
 		let text = newPostElement.current.value
-		props.updateNewPostText(text)
+		let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text }
+		props.dispatch(action)
 	}
 
 	return (
