@@ -4,7 +4,7 @@ import './App.css'
 
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 import Header from './components/Header/Header.jsx'
-import Navbar from './components/Navbar/Navbar'
+import NavbarContainer from './components/Navbar/NavbarContainer'
 import Profile from './components/Profile/Profile'
 import News from './components/News/News'
 import Music from './components/Music/Music'
@@ -14,7 +14,7 @@ const App = props => {
 		<BrowserRouter>
 			<div className='app-wrapper'>
 				<Header />
-				<Navbar />
+				<NavbarContainer />
 				<div className='content'>
 					<Routes>
 						<Route path='/*' element={<Profile />} />

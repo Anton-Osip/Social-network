@@ -8,7 +8,7 @@ import Message from './Message/Message'
 export default function Dialogs(props) {
 	function onSendMessageClick(e) {
 		e.preventDefault()
-		props.SendMessageClick()
+		props.sendMessage()
 	}
 
 	function onNewMessageChange(e) {
