@@ -6,6 +6,7 @@ import Link from './Link/Link'
 import FrendLink from './FrendLink/FrendLink'
 
 export default function Navbar(props) {
+	
 	const linksElements = props.state.links.map(link => (
 		<Link link={link.link} href={link.href} key={uuid()} />
 	))
