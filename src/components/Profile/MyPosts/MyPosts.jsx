@@ -1,30 +1,24 @@
 import React from 'react'
 import uuid from 'react-uuid'
-import {
-	addPostActionCreator,
-	updateNewPostTextActionCreator,
-} from '../../../redux/profile-reducer'
 import styles from './MyPosts.module.css'
 
 import Post from './Post/Post'
 
 export default function MyPosts(props) {
-	const postsElements = props.profilePage.posts.map(post => (
+	const postsElements = props.posts.map(post => (
 		<Post message={post.message} likeCount={post.likeCount} key={uuid()} />
 	))
 
 	let newPostElement = React.createRef()
 
-	function addPost(e) {
+	function onAddPost(e) {
 		e.preventDefault()
-		let action = addPostActionCreator()
-		props.dispatch(action)
+		props.addPost()
 	}
 
 	function onPostChange() {
 		let text = newPostElement.current.value
-		let action = updateNewPostTextActionCreator(text)
-		props.dispatch(action)
+		props.updateNewPostText(text)
 	}
 
 	return (
@@ -36,11 +30,11 @@ export default function MyPosts(props) {
 						onChange={onPostChange}
 						type='text'
 						ref={newPostElement}
-						value={props.profilePage.newPostText}
+						value={props.newPostText}
 						className={styles.newPost__input}
 					/>
 					<button
-						onClick={addPost}
+						onClick={onAddPost}
 						type='submit'
 						className={styles.newPost__btn}
 					>

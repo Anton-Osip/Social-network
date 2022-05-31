@@ -4,9 +4,17 @@ import styles from './Dialogs.module.css'
 
 import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
-import NewMessage from './NewMessage/NewMessage'
 
 export default function Dialogs(props) {
+	function onSendMessageClick(e) {
+		e.preventDefault()
+		props.SendMessageClick()
+	}
+
+	function onNewMessageChange(e) {
+		let body = e.target.value
+		props.updateNewMessageBody(body)
+	}
 	const dialogsElements = props.dialogsPage.dialogs.map(dialog => (
 		<Dialog name={dialog.name} key={uuid()} />
 	))
@@ -23,10 +31,21 @@ export default function Dialogs(props) {
 				<div className={styles.dialogs__messages}>
 					{messagesElements}
 				</div>
-				<NewMessage
-					newMessageBody={props.dialogsPage.newMessageBody}
-					dispatch={props.dispatch}
-				/>
+				<form className={styles.form}>
+					<input
+						onChange={onNewMessageChange}
+						type='text'
+						className={styles.form__input}
+						value={props.dialogsPage.newMessageBody}
+					/>
+					<button
+						onClick={onSendMessageClick}
+						type='submit'
+						className={styles.form__btn}
+					>
+						SEND
+					</button>
+				</form>
 			</div>
 		</div>
 	)
