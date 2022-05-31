@@ -2,7 +2,7 @@ import React from 'react'
 import {
 	sendMessageCreator,
 	updateNewMessageBodyCreator,
-} from '../../../redux/state'
+} from '../../../redux/dialogs-reducer.js'
 import styles from './NewMessage.module.css'
 
 export default function NewMessage(props) {
