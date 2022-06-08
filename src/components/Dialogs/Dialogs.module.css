@@ -22,7 +22,7 @@
 .dialogs__messages {
 	display: flex;
 	flex-direction: column;
-	padding: 35px;
+	padding: 35px 35px 80px 35px;
 	width: 100%;
 }
 
@@ -56,4 +56,3 @@
 	cursor: pointer;
 	color: #fff;
 }
-
