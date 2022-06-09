@@ -4,7 +4,7 @@ import userImg from '../../images/user.png'
 import uuid from 'react-uuid'
 
 export default function Users(props) {
-	if (props.users.length === 0) {
+	if (props.users.length <= 0) {
 		props.setUsers([
 			{
 				id: 1,
