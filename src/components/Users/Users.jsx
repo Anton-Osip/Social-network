@@ -2,39 +2,13 @@ import React from 'react'
 import styles from './Users.module.css'
 import userImg from '../../images/user.png'
 import uuid from 'react-uuid'
+import * as axios from 'axios'
 
 export default function Users(props) {
-	if (props.users.length <= 0) {
-		props.setUsers([
-			{
-				id: 1,
-				fullName: 'Dmitry K.',
-				status: 'I am looking for a Job right now...',
-				location: { city: 'Minsk', countru: 'Belarus' },
-				followed: true,
-			},
-			{
-				id: 2,
-				fullName: 'Svetlana D.',
-				status: 'I am so pretty',
-				location: { city: 'Minsk', countru: 'Belarus' },
-				followed: true,
-			},
-			{
-				id: 3,
-				fullName: 'Sergei S.',
-				status: 'I like football!!!',
-				location: { city: 'Minsk', countru: 'Belarus' },
-				followed: false,
-			},
-			{
-				id: 4,
-				fullName: 'Andrew T.',
-				status: 'I am free to help you  to create good Video Production',
-				location: { city: 'United States', countru: 'Philadelphia' },
-				followed: false,
-			},
-		])
+	if (props.users.length === 0) {
+		axios
+			.get('https://social-network.samuraijs.com/api/1.0/users')
+			.then(response => props.setUsers(response.data.items))
 	}
 
 	return (
@@ -47,8 +21,12 @@ export default function Users(props) {
 							<div className={styles.user__img_block}>
 								<img
 									className={styles.user__img}
-									src={userImg}
-									alt={user.fullName}
+									src={
+										user.photos.small != null
+											? user.photos.small
+											: userImg
+									}
+									alt={user.name}
 								/>
 							</div>
 							{user.followed ? (
@@ -74,19 +52,15 @@ export default function Users(props) {
 						<div className={styles.user__right}>
 							<div className={styles.user__info}>
 								<h4 className={styles.user__name}>
-									{user.fullName}
+									{user.name}
 								</h4>
 								<p className={styles.user__status}>
 									{user.status}
 								</p>
 							</div>
 							<div className={styles.user__location}>
-								<p className={styles.user__countru}>
-									{user.location.countru}
-								</p>
-								<p className={styles.user__city}>
-									{user.location.city}
-								</p>
+								<p className={styles.user__countru}>Беларусь</p>
+								<p className={styles.user__city}>Минск</p>
 							</div>
 						</div>
 					</div>
