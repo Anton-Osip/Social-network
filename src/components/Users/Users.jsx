@@ -5,16 +5,19 @@ import uuid from 'react-uuid'
 import * as axios from 'axios'
 
 export default function Users(props) {
-	if (props.users.length === 0) {
-		axios
-			.get('https://social-network.samuraijs.com/api/1.0/users')
-			.then(response => props.setUsers(response.data.items))
+	let getUsers = () => {
+		if (props.users.length === 0) {
+			axios
+				.get('https://social-network.samuraijs.com/api/1.0/users')
+				.then(response => props.setUsers(response.data.items))
+		}
 	}
 
 	return (
 		<div className={styles.users}>
 			<h1 className={styles.users__title}>Users</h1>
 			<div className={styles.users__inner}>
+				<button onClick={getUsers}>Get users</button>
 				{props.users.map(user => (
 					<div key={uuid()} className={styles.user}>
 						<div className={styles.user__left}>
