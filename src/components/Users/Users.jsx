@@ -7,13 +7,50 @@ import * as axios from 'axios'
 export default class Users extends Component {
 	componentDidMount() {
 		axios
-			.get('https://social-network.samuraijs.com/api/1.0/users')
+			.get(
+				`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+			)
+			.then(response => {
+				this.props.setUsers(response.data.items)
+				this.props.setTotalUsersCount(response.data.totalCount)
+			})
+	}
+	onPageChanged = pageNumber => {
+		this.props.setCurrentPage(pageNumber)
+		axios
+			.get(
+				`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+			)
 			.then(response => this.props.setUsers(response.data.items))
 	}
 	render() {
+		let pagesCount = Math.ceil(
+			this.props.totalUsersCount / this.props.pageSize
+		)
+		let pages = []
+		for (let i = 1; i <= pagesCount; i++) {
+			pages.push(i)
+		}
 		return (
 			<div className={styles.users}>
 				<h1 className={styles.users__title}>Users</h1>
+				<div className={styles.users__navigations}>
+					{pages.map(page => (
+						<div
+							className={
+								this.props.currentPage === page
+									? styles.users__navigationsItemActive
+									: styles.users__navigationsItem
+							}
+							key={uuid()}
+							onClick={e => {
+								this.onPageChanged(page)
+							}}
+						>
+							{page}
+						</div>
+					))}
+				</div>
 				<div className={styles.users__inner}>
 					{this.props.users.map(user => (
 						<div key={uuid()} className={styles.user}>
