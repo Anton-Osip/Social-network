@@ -2,9 +2,13 @@ import React from 'react'
 import styles from './ProfileInfo.module.css'
 
 import banner from '../../../../images/banner.jpg'
-import ava from '../../../../images/ava.jpg'
+import Preloader from './../../../commen/Preloader/Preloader'
+// import ava from '../../../../images/ava.jpg'
 
-export default function ProfileInfo() {
+export default function ProfileInfo(props) {
+	if (!props.profile) {
+		return <Preloader />
+	}
 	return (
 		<>
 			<div>
@@ -12,10 +16,16 @@ export default function ProfileInfo() {
 			</div>
 			<div className={styles.me}>
 				<div className={styles.me__ava}>
-					<img src={ava} alt='ava' className={styles.me__avaImg} />
+					<img
+						src={props.profile.photos.large}
+						alt='ava'
+						className={styles.me__avaImg}
+					/>
 				</div>
 				<div className={styles.me__info}>
-					<h3 className={styles.me__name}>Osipchyk Anton</h3>
+					<h3 className={styles.me__name}>
+						{props.profile.fullName}
+					</h3>
 
 					<p className={styles.me__text}>Date of Birth: 30 october</p>
 					<p className={styles.me__text}>City: Minsk</p>

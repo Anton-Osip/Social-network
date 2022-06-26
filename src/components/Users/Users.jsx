@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Users.module.css'
 import userImg from '../../images/user.png'
 import uuid from 'react-uuid'
+import { NavLink } from 'react-router-dom'
 
 export default function Users(props) {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -33,7 +34,11 @@ export default function Users(props) {
 				{props.users.map(user => (
 					<div key={uuid()} className={styles.user}>
 						<div className={styles.user__left}>
-							<div className={styles.user__img_block}>
+							<NavLink
+								// ${user.id}
+								to={`/profile/1436`}
+								className={styles.user__img_block}
+							>
 								<img
 									className={styles.user__img}
 									src={
@@ -43,7 +48,7 @@ export default function Users(props) {
 									}
 									alt={user.name}
 								/>
-							</div>
+							</NavLink>
 							{user.followed ? (
 								<button
 									className={styles.user__follow}
