@@ -35,8 +35,7 @@ export default function Users(props) {
 					<div key={uuid()} className={styles.user}>
 						<div className={styles.user__left}>
 							<NavLink
-								// ${user.id}
-								to={`/profile/1436`}
+								to={`/profile/${user.id}`}
 								className={styles.user__img_block}
 							>
 								<img
