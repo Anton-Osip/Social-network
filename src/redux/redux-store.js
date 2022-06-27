@@ -2,13 +2,15 @@ import { combineReducers, legacy_createStore as createStore } from 'redux'
 import profileReducer from './profile-reducer'
 import sidebarReducer from './sidebar-reducer'
 import dialogsReducer from './dialogs-reducer'
-import UsersReducer from './user-reduser'
+import usersReducer from './user-reduser'
+import authReducer from './auth-reducer'
 
 let reducers = combineReducers({
 	profilePage: profileReducer,
 	dialogsPage: dialogsReducer,
 	sidebarPage: sidebarReducer,
-	usersPage: UsersReducer,
+	usersPage: usersReducer,
+	auth: authReducer,
 })
 
 let store = createStore(reducers)
