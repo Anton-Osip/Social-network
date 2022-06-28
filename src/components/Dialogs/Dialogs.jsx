@@ -4,6 +4,7 @@ import styles from './Dialogs.module.css'
 
 import Dialog from './Dialog/Dialog'
 import Message from './Message/Message'
+import { Navigate } from 'react-router-dom'
 
 export default function Dialogs(props) {
 	function onSendMessageClick(e) {
@@ -22,15 +23,15 @@ export default function Dialogs(props) {
 	const messagesElements = props.dialogsPage.messages.map(message => (
 		<Message message={message.message} key={uuid()} my={message.my} />
 	))
-
+	if (!props.isAuth) {
+		return <Navigate to={'/login'} />
+	}
 	return (
 		<div className={styles.dialogs}>
 			<h1 className={styles.dialogs__title}>DIALOGS</h1>
 			<div className={styles.dialogs__inner}>
 				<div className={styles.dialogs____names}>{dialogsElements}</div>
-				<div className={styles.dialogs__messages}>
-					{messagesElements}
-				</div>
+				<div className={styles.dialogs__messages}>{messagesElements}</div>
 				<form className={styles.form}>
 					<input
 						onChange={onNewMessageChange}
@@ -38,11 +39,7 @@ export default function Dialogs(props) {
 						className={styles.form__input}
 						value={props.dialogsPage.newMessageBody}
 					/>
-					<button
-						onClick={onSendMessageClick}
-						type='submit'
-						className={styles.form__btn}
-					>
+					<button onClick={onSendMessageClick} type='submit' className={styles.form__btn}>
 						SEND
 					</button>
 				</form>
