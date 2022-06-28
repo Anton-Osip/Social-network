@@ -33,11 +33,7 @@ export default function MyPosts(props) {
 						value={props.newPostText}
 						className={styles.newPost__input}
 					/>
-					<button
-						onClick={onAddPost}
-						type='submit'
-						className={styles.newPost__btn}
-					>
+					<button onClick={onAddPost} type='submit' className={styles.newPost__btn}>
 						Send
 					</button>
 				</form>

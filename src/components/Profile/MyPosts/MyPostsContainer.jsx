@@ -9,7 +9,6 @@ let mapStateToProps = state => {
 	}
 }
 
-
 const MyPostsContainer = connect(mapStateToProps, {
 	addPost,
 	updateNewPostText,
