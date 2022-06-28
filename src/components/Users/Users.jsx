@@ -3,6 +3,7 @@ import styles from './Users.module.css'
 import userImg from '../../images/user.png'
 import uuid from 'react-uuid'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
 
 export default function Users(props) {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -34,25 +35,31 @@ export default function Users(props) {
 				{props.users.map(user => (
 					<div key={uuid()} className={styles.user}>
 						<div className={styles.user__left}>
-							<NavLink
-								to={`/profile/${user.id}`}
-								className={styles.user__img_block}
-							>
+							<NavLink to={`/profile/${user.id}`} className={styles.user__img_block}>
 								<img
 									className={styles.user__img}
-									src={
-										user.photos.small != null
-											? user.photos.small
-											: userImg
-									}
+									src={user.photos.small != null ? user.photos.small : userImg}
 									alt={user.name}
 								/>
 							</NavLink>
-							{user.followed ? (
+							{!user.followed ? (
 								<button
 									className={styles.user__follow}
 									onClick={() => {
-										props.unfollow(user.id)
+										axios
+											.post(
+												`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
+												{},
+												{
+													withCredentials: true,
+													headers: { 'API-KEY': '854b5e60-b824-42c5-b09b-44bf20807a73' },
+												},
+											)
+											.then(response => {
+												if (response.data.resultCode === 0) {
+													props.follow(user.id)
+												}
+											})
 									}}
 								>
 									Follow
@@ -61,7 +68,20 @@ export default function Users(props) {
 								<button
 									className={styles.user__follow}
 									onClick={() => {
-										props.follow(user.id)
+										axios
+											.delete(
+												`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
+
+												{
+													withCredentials: true,
+													headers: { 'API-KEY': '854b5e60-b824-42c5-b09b-44bf20807a73' },
+												},
+											)
+											.then(response => {
+												if (response.data.resultCode === 0) {
+													props.unfollow(user.id)
+												}
+											})
 									}}
 								>
 									Unfollow
@@ -70,12 +90,8 @@ export default function Users(props) {
 						</div>
 						<div className={styles.user__right}>
 							<div className={styles.user__info}>
-								<h4 className={styles.user__name}>
-									{user.name}
-								</h4>
-								<p className={styles.user__status}>
-									{user.status}
-								</p>
+								<h4 className={styles.user__name}>{user.name}</h4>
+								<p className={styles.user__status}>{user.status}</p>
 							</div>
 							<div className={styles.user__location}>
 								<p className={styles.user__countru}>Беларусь</p>
