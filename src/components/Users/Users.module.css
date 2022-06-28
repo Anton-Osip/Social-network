@@ -78,6 +78,10 @@
 	border: none;
 	outline: none;
 }
+.user__follow:disabled {
+	background-color: rgb(116, 116, 116);
+	color: #000;
+}
 .user__right {
 	border: 2px solid #c0ccda;
 	border-radius: 10px;
@@ -107,4 +111,3 @@
 	font-size: 21px;
 	line-height: 36px;
 }
-
