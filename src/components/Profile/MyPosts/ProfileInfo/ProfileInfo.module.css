@@ -5,6 +5,7 @@
 }
 .me {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 45px;
 	margin-bottom: 50px;
 }

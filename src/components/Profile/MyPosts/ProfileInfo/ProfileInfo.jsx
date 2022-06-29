@@ -3,6 +3,7 @@ import styles from './ProfileInfo.module.css'
 import ava from '../../../../images/ava.jpg'
 import banner from '../../../../images/banner.jpg'
 import Preloader from './../../../commen/Preloader/Preloader'
+import ProfileStatus from './ProfileStatus/ProfileStatus'
 
 export default function ProfileInfo(props) {
 	if (!props.profile) {
@@ -34,6 +35,7 @@ export default function ProfileInfo(props) {
 						</a>
 					</p>
 				</div>
+				<ProfileStatus status={'hellow'} />
 			</div>
 		</>
 	)
