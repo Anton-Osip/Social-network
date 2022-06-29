@@ -35,7 +35,7 @@ export default function ProfileInfo(props) {
 						</a>
 					</p>
 				</div>
-				<ProfileStatus status={'hellow'} />
+				<ProfileStatus status={props.status} updateStatus={props.updateStatus} />
 			</div>
 		</>
 	)
